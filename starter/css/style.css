@@ -161,7 +161,27 @@ body {
   }
 }
 
-/* link & visited are pseudoclasses (a special state of a selector) */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    -webkit-transform: translateY(30px);
+    -moz-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    -o-transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+/* link & visited are pseudo-classes (a special state of a selector) */
 /* The inline-block displays an element as inline-level block container.
     This treats the element as if it is text, so the parent class (aka text-box) should use text-align to center. */
 /* A high border-radius will have the same effect.
@@ -186,6 +206,7 @@ body {
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
+  position: relative;
 }
 
 /* To give the effect of pressing a button, adjust box-shadow.
@@ -216,4 +237,51 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+/* ::after is a pseudo-element
+    It asks like a virtual child element after the element selected.
+    The content and display properties are required for ::after.
+    Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
+    Setting the z-index to -1 makes sure this is behind the parent. */
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  opacity: 0;
+  transform: scaleX(1.4) scaleY(1.6);
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+  -moz-transform: scaleX(1.4) scaleY(1.6);
+  -ms-transform: scaleX(1.4) scaleY(1.6);
+  -o-transform: scaleX(1.4) scaleY(1.6);
+}
+
+/* animation: [name] [duration] [timing-function] [delay] */
+/* The animation-fill-mode property specifies a style for the element when the animation is not playing.
+    Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
+  animation-fill-mode: backwards;
 }
