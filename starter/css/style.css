@@ -51,6 +51,7 @@ body {
   position: absolute;
   top: 40%;
   left: 50%;
+
   /* The translate transformation is in relation to the element itself. */
   /* The element is shifted 50% of its width to the left and 50% of its height to the top. */
   transform: translate(-50%, -50%);
@@ -63,6 +64,10 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* This prevents animation side effects (like shifts) .*/
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* All span elements are inline by default. */
@@ -73,6 +78,16 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* This applies the @keyframes rule defined below. */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /*
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+  */
 }
 
 .heading-primary-sub {
@@ -80,4 +95,67 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* This is is short-hand for animation compared to heading-primary-main. */
+  animation: moveInRight 1s ease-out;
+  -webkit-animation: moveInRight 1s ease-out;
+}
+
+/* Custom animations can be created with @keyframes rule. */
+/* For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES. That's what browsers are optimized for. */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+    -webkit-transform: translateX(-100px);
+    -moz-transform: translateX(-100px);
+    -ms-transform: translateX(-100px);
+    -o-transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    -o-transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+    -webkit-transform: translateX(100px);
+    -moz-transform: translateX(100px);
+    -ms-transform: translateX(100px);
+    -o-transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+    -webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    -o-transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
 }
