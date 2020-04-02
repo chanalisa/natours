@@ -47,13 +47,14 @@ body {
   height: 35px;
 }
 
+/* The translate transformation is in relation to the element itself. */
+/* The element is shifted 50% of its width to the left and 50% of its height to the top. */
 .text-box {
   position: absolute;
   top: 40%;
   left: 50%;
+  text-align: center;
 
-  /* The translate transformation is in relation to the element itself. */
-  /* The element is shifted 50% of its width to the left and 50% of its height to the top. */
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -61,48 +62,48 @@ body {
   -o-transform: translate(-50%, -50%);
 }
 
+/* The backface-visibilty is meant to refer to the backside of an element.
+    In this case it is preventing animation side effects (like shifts) .*/
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-
-  /* This prevents animation side effects (like shifts) .*/
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
-/* All span elements are inline by default. */
-/* The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
-
+/* All span elements are inline by default.
+    The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
+/* The animation properties apply the @keyframes rules. */
 .heading-primary-main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
 
-  /* This applies the @keyframes rule defined below. */
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
-
   /*
   animation-delay: 3s;
   animation-iteration-count: 3;
   */
 }
 
+/* The animation property is short-hand for the animation properties in heading-primary-main. */
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
 
-  /* This is is short-hand for animation compared to heading-primary-main. */
   animation: moveInRight 1s ease-out;
   -webkit-animation: moveInRight 1s ease-out;
 }
 
-/* Custom animations can be created with @keyframes rule. */
-/* For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES. That's what browsers are optimized for. */
+/* Custom animations can be created with @keyframes rule.
+    For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES.
+    That's what browsers are optimized for. */
 
 @keyframes moveInLeft {
   0% {
@@ -158,4 +159,61 @@ body {
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
   }
+}
+
+/* link & visited are pseudoclasses (a special state of a selector) */
+/* The inline-block displays an element as inline-level block container.
+    This treats the element as if it is text, so the parent class (aka text-box) should use text-align to center. */
+/* A high border-radius will have the same effect.
+    Ex: 100px will display the same as 500px */
+/* The transition property is the simpler method to perform an animation (compared to @keyframes).
+    It allows a smooth gradual change through a specified timeframe.
+    Here, all is specified, so all properties (translations in hover and active) will be animated with transition. */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+/* To give the effect of pressing a button, adjust box-shadow.
+    box-shadow: [x] [y] [blur] [rgba(r, g, b, opacity)] */
+
+.btn:hover {
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  -o-transform: translateY(-3px);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* The active pseudoclass reprecents when the link is clicked. */
+/* Transformations are in relation to the initial state - NOT the previous state. */
+.btn:active {
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
