@@ -240,7 +240,7 @@ body {
 }
 
 /* ::after is a pseudo-element
-    It asks like a virtual child element after the element selected.
+    It acts like a virtual child element after the element selected.
     The content and display properties are required for ::after.
     Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
     Setting the z-index to -1 makes sure this is behind the parent. */
