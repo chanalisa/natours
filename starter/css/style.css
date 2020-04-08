@@ -63,7 +63,7 @@ body {
 }
 
 /* The backface-visibilty is meant to refer to the backside of an element.
-    In this case it is preventing animation side effects (like shifts) .*/
+    In this case, it is preventing animation side effects (like shifts) .*/
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
