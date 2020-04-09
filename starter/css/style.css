@@ -222,7 +222,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* The active pseudoclass reprecents when the link is clicked. */
+/* The active pseudo-class reprecents when the link is clicked. */
 /* Transformations are in relation to the initial state - NOT the previous state. */
 .btn:active {
   transform: translateY(-1px);
