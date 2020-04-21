@@ -7,25 +7,29 @@ Dark green: #28b485
 
 */
 
-* {
+/* The inherit keyword forces inheritance. (See box-sizing specifications in body.) */
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 /* By setting the root font size to a percentage (rather than a pixel value),
-    the font size will be determined as a percentage of the font size given by the browser.
-    This is best practice, so if users accessing the page have a specified font size setting,
-      then the font will adjust according the to their specifications.
-      This will be considered the root for the rem values.
-      Otherwise, the root will stay as the pixel value you provide.
-    The default browser font size is 16px.
-    Below, we want 10px as the root, so we found the percentage 10 is of 16. */
+the font size will be determined as a percentage of the font size given by the browser.
+This is best practice, so if users accessing the page have a specified font size setting,
+then the font will adjust according the to their specifications.
+This will be considered the root for the rem values.
+Otherwise, the root will stay as the pixel value you provide.
+The default browser font size is 16px.
+Below, we want 10px as the root, so we found the percentage 10 is of 16. */
 /* FYI: rem is  not supported below IE9 */
 html {
   font-size: 62.5%;
 }
 
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -33,6 +37,8 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+
+  box-sizing: border-box;
 }
 
 .header {
