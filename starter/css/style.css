@@ -56,19 +56,19 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
 /* The translate transformation is in relation to the element itself. */
 /* The element is shifted 50% of its width to the left and 50% of its height to the top. */
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -94,7 +94,7 @@ body {
 /* All span elements are inline by default.
     The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
 /* The animation properties apply the @keyframes rules. */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -110,7 +110,7 @@ body {
 }
 
 /* The animation property is short-hand for the animation properties in heading-primary-main. */
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -252,7 +252,7 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -284,7 +284,7 @@ body {
   -o-border-radius: 10rem;
 }
 
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -301,7 +301,7 @@ body {
 /* The animation-fill-mode property specifies a style for the element when the animation is not playing.
     Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
