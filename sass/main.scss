@@ -4,6 +4,7 @@ $color-primary-dark: #28b485;
 
 $color-grey-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 
 /* The inherit keyword forces inheritance. (See box-sizing specifications in body.) */
 *,
@@ -235,7 +236,7 @@ body {
   -moz-transform: translateY(-3px);
   -ms-transform: translateY(-3px);
   -o-transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 }
 
 /* The active pseudo-class reprecents when the link is clicked. */
@@ -247,7 +248,7 @@ body {
   -ms-transform: translateY(-1px);
   -o-transform: translateY(-1px);
 
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
 }
 
 .btn--white {
