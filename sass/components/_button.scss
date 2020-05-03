@@ -1,0 +1,109 @@
+/* link & visited are pseudo-classes (a special state of a selector) */
+/* The inline-block displays an element as inline-level block container.
+    This treats the element as if it is text, so the parent class (aka text-box) should use text-align to center. */
+/* A high border-radius will have the same effect.
+    Ex: 100px will display the same as 500px */
+/* The transition property is the simpler method to perform an animation (compared to @keyframes).
+    It allows a smooth gradual change through a specified timeframe.
+    Here, all is specified, so all properties (translations in hover and active) will be animated with transition. */
+
+.btn {
+  &:link,
+  &:visited {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    position: relative;
+  }
+
+  /* To give the effect of pressing a button, adjust box-shadow.
+        box-shadow: [x] [y] [blur] [rgba(r, g, b, opacity)] */
+
+  &:hover {
+    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      opacity: 0;
+      transform: scaleX(1.4) scaleY(1.6);
+      -webkit-transform: scaleX(1.4) scaleY(1.6);
+      -moz-transform: scaleX(1.4) scaleY(1.6);
+      -ms-transform: scaleX(1.4) scaleY(1.6);
+      -o-transform: scaleX(1.4) scaleY(1.6);
+    }
+  }
+
+  /* The active pseudo-class reprecents when the link is clicked. */
+  /* Transformations are in relation to the initial state - NOT the previous state. */
+  &:active {
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* ::after is a pseudo-element
+            It acts like a virtual child element after the element selected.
+            The content and display properties are required for ::after.
+            Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
+            Setting the z-index to -1 makes sure this is behind the parent. */
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+  }
+
+  /* animation: [name] [duration] [timing-function] [delay] */
+  /* The animation-fill-mode property specifies a style for the element when the animation is not playing.
+            Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}

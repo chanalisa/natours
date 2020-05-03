@@ -1,91 +1,3 @@
-/* The inherit keyword forces inheritance. (See box-sizing specifications in body.) */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-/* By setting the root font size to a percentage (rather than a pixel value),
-the font size will be determined as a percentage of the font size given by the browser.
-This is best practice, so if users accessing the page have a specified font size setting,
-then the font will adjust according the to their specifications.
-This will be considered the root for the rem values.
-Otherwise, the root will stay as the pixel value you provide.
-The default browser font size is 16px.
-Below, we want 10px as the root, so we found the percentage 10 is of 16. */
-/* FYI: rem is  not supported below IE9 */
-html {
-  font-size: 62.5%; }
-
-/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* The translate transformation is in relation to the element itself. */
-  /* The element is shifted 50% of its width to the left and 50% of its height to the top. */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%); }
-
-/* The backface-visibilty is meant to refer to the backside of an element.
-    In this case, it is preventing animation side effects (like shifts) .*/
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  margin-bottom: 6rem;
-  /* All span elements are inline by default.
-      The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
-  /* The animation properties apply the @keyframes rules. */
-  /* The animation property is short-hand for the animation properties in heading-primary-main. */ }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /*
-    animation-delay: 3s;
-    animation-iteration-count: 3;
-    */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-    -webkit-animation: moveInRight 1s ease-out; }
-
 /* Custom animations can be created with @keyframes rule.
     For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES.
     That's what browsers are optimized for. */
@@ -149,6 +61,70 @@ body {
     -ms-transform: translateY(0);
     -o-transform: translateY(0); } }
 
+/* The inherit keyword forces inheritance. (See box-sizing specifications in body.) */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* By setting the root font size to a percentage (rather than a pixel value),
+the font size will be determined as a percentage of the font size given by the browser.
+This is best practice, so if users accessing the page have a specified font size setting,
+then the font will adjust according the to their specifications.
+This will be considered the root for the rem values.
+Otherwise, the root will stay as the pixel value you provide.
+The default browser font size is 16px.
+Below, we want 10px as the root, so we found the percentage 10 is of 16. */
+/* FYI: rem is  not supported below IE9 */
+html {
+  font-size: 62.5%; }
+
+/* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+/* The backface-visibilty is meant to refer to the backside of an element.
+    In this case, it is preventing animation side effects (like shifts) .*/
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  margin-bottom: 6rem;
+  /* All span elements are inline by default.
+            The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
+  /* The animation properties apply the @keyframes rules. */
+  /* The animation property is short-hand for the animation properties in heading-primary-main. */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*
+          animation-delay: 3s;
+          animation-iteration-count: 3;
+          */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    -webkit-animation: moveInRight 1s ease-out; }
+
 /* link & visited are pseudo-classes (a special state of a selector) */
 /* The inline-block displays an element as inline-level block container.
     This treats the element as if it is text, so the parent class (aka text-box) should use text-align to center. */
@@ -159,17 +135,17 @@ body {
     Here, all is specified, so all properties (translations in hover and active) will be animated with transition. */
 .btn {
   /* To give the effect of pressing a button, adjust box-shadow.
-  box-shadow: [x] [y] [blur] [rgba(r, g, b, opacity)] */
+        box-shadow: [x] [y] [blur] [rgba(r, g, b, opacity)] */
   /* The active pseudo-class reprecents when the link is clicked. */
   /* Transformations are in relation to the initial state - NOT the previous state. */
   /* ::after is a pseudo-element
-      It acts like a virtual child element after the element selected.
-      The content and display properties are required for ::after.
-      Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
-      Setting the z-index to -1 makes sure this is behind the parent. */
+            It acts like a virtual child element after the element selected.
+            The content and display properties are required for ::after.
+            Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
+            Setting the z-index to -1 makes sure this is behind the parent. */
   /* animation: [name] [duration] [timing-function] [delay] */
   /* The animation-fill-mode property specifies a style for the element when the animation is not playing.
-      Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */ }
+            Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */ }
   .btn:link, .btn:visited {
     font-size: 1.6rem;
     text-transform: uppercase;
@@ -236,3 +212,29 @@ body {
     animation: moveInBottom 0.5s ease-out 0.75s;
     -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
     animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* The translate transformation is in relation to the element itself. */
+  /* The element is shifted 50% of its width to the left and 50% of its height to the top. */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%); }
