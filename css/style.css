@@ -1,3 +1,8 @@
+/* Clearfix appends a pseudo-element after the element which will then clear floats.
+    If an element's child elements are floated left/right, then the element's height will collapse.
+    Always specify the content property; otherwise, the pseudo-element will not appear.
+        (Specify the content as empty, so it's not visible.)
+    The clear property will clear both right and left floats. */
 /* Custom animations can be created with @keyframes rule.
     For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES.
     That's what browsers are optimized for. */
@@ -216,9 +221,37 @@ body {
 .row {
   max-width: 114rem;
   background-color: #eee;
-  margin: 0 auto; }
+  margin: 0 auto;
+  /* This selects everything except for the last child. */
+  /* This includes the clearfix mixin created, which will restore the row to the intended height. */
+  /* This will select all elements where the class attributes begin with "col-". 
+        *= indicates includes
+        $= indicates ends with */
+  /* The calc function allows for operations with mixed units.
+        If using a variable within calc, the variable must be wrapped in hash followed my curly brackets. */ }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc( 100% - 2 * ((100% - 3 * 6rem) / 4) - 2 * 6rem); }
+  .row .col-3-of-4 {
+    width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .header {
   height: 95vh;
