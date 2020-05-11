@@ -107,7 +107,7 @@ body {
   -webkit-backface-visibility: hidden;
   margin-bottom: 6rem;
   /* All span elements are inline by default.
-            The display block creates line breaks because it takes up 100% of the width, which allows 2-lined h1. */
+            The display block creates line breaks because it takes up 100% of the width, which creates a 2-lined h1. */
   /* The animation properties apply the @keyframes rules. */
   /* The animation property is short-hand for the animation properties in heading-primary-main. */ }
   .heading-primary--main {
@@ -152,6 +152,12 @@ body {
     -moz-transform: skewY(2deg) skewX(15deg) scale(1.1);
     -ms-transform: skewY(2deg) skewX(15deg) scale(1.1);
     -o-transform: skewY(2deg) skewX(15deg) scale(1.1); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
 
 /* link & visited are pseudo-classes (a special state of a selector) */
 /* The inline-block displays an element as inline-level block container.
@@ -259,7 +265,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
