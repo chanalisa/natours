@@ -153,6 +153,16 @@ body {
     -ms-transform: skewY(2deg) skewX(15deg) scale(1.1);
     -o-transform: skewY(2deg) skewX(15deg) scale(1.1); }
 
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
 .u-center-text {
   text-align: center; }
 
@@ -249,7 +259,6 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
   margin: 0 auto;
   /* This selects everything except for the last child. */
   /* This includes the clearfix mixin created, which will restore the row to the intended height. */
