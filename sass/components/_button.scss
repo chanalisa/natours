@@ -10,7 +10,7 @@
 .btn {
   &:link,
   &:visited {
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     text-transform: uppercase;
     text-decoration: none;
     padding: 1.5rem 4rem;
@@ -71,10 +71,10 @@
   }
 
   /* ::after is a pseudo-element
-            It acts like a virtual child element after the element selected.
-            The content and display properties are required for ::after.
-            Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
-            Setting the z-index to -1 makes sure this is behind the parent. */
+      It acts like a virtual child element after the element selected.
+      The content and display properties are required for ::after.
+      Setting the position as absolute in relation to the parent will allow it to be in the same place as the parent.
+      Setting the z-index to -1 makes sure this is behind the parent. */
 
   &::after {
     content: "";
@@ -99,7 +99,7 @@
 
   /* animation: [name] [duration] [timing-function] [delay] */
   /* The animation-fill-mode property specifies a style for the element when the animation is not playing.
-            Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */
+      Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */
 
   &--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
@@ -111,17 +111,36 @@
 .btn-text {
   &:link,
   &:visited {
-    font-size: 1.6 rem;
+    font-size: $default-font-size;
     color: $color-primary;
     display: inline-block;
     text-decoration: none;
     border-bottom: 1px solid $color-primary;
     padding: 3px;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
   }
 
-  &.hover {
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
   }
 
   &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
   }
 }
