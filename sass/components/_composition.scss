@@ -1,0 +1,59 @@
+.composition {
+  position: relative;
+
+  /* The outline-offset property allows the outline to not be flush with the image. */
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    position: absolute;
+    z-index: 10;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    /* The outline property is the same as border, but allows the use of the outline-offset property. */
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      transform: scale(1.05) translateY(-0.5rem);
+      -webkit-transform: scale(1.05) translateY(-0.5rem);
+      -moz-transform: scale(1.05) translateY(-0.5rem);
+      -ms-transform: scale(1.05) translateY(-0.5rem);
+      -o-transform: scale(1.05) translateY(-0.5rem);
+      z-index: 20;
+    }
+  }
+
+  /* .composition:hover .composition__photo:not(:hover) 
+        This selects the non-hovered child elements, when hovering over the composition div. */
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+  }
+}
