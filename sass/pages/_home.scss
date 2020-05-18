@@ -4,3 +4,31 @@
   // .header height: 95vh & clip-path: 75vh
   margin-top: -20vh;
 }
+
+.section-features {
+  margin-top: -10rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg);
+  -webkit-transform: skewY(-7deg);
+  -moz-transform: skewY(-7deg);
+  -ms-transform: skewY(-7deg);
+  -o-transform: skewY(-7deg);
+
+  /* The direct child elements are all impacted from inheritance and can be offset by the opposite skew.
+     & > * selects all DIRECT child element(s) of an element
+       > = direct child */
+  & > * {
+    transform: skewY(7deg);
+    -webkit-transform: skewY(7deg);
+    -moz-transform: skewY(7deg);
+    -ms-transform: skewY(7deg);
+    -o-transform: skewY(7deg);
+  }
+}
