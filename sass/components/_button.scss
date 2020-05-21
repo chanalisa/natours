@@ -70,6 +70,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* ::after is a pseudo-element
       It acts like a virtual child element after the element selected.
       The content and display properties are required for ::after.
