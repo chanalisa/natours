@@ -111,11 +111,21 @@
     }
 
     &--2 {
-      background-image: url(../img/nat-5.jpg);
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
     }
 
     &--3 {
-      background-image: url(../img/nat-5.jpg);
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-7.jpg);
     }
   }
 
@@ -168,5 +178,41 @@
         }
       }
     }
+  }
+
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    width: 90%;
+    text-align: center;
+
+    /* This moves the element 50% of its parent element's height down and 50% of its parents element's width to the left. */
+    top: 50%;
+    left: 50%;
+
+    /* The transform property pulls the element back to the center by translating it 50% of it's own width to the right
+        and 50% of its own height upward. */
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    text-align: center;
+    /* Specified color property in the price box element so child elements will inherit it. */
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
   }
 }
