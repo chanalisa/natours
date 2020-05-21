@@ -1,4 +1,5 @@
 .card {
+  // FUNCTIONALITY
   /* The perspective property determines the distance between the z=0 plane and the user to give a 3D-positioned element
         some perspective. */
   perspective: 150rem;
@@ -6,20 +7,18 @@
   -moz-perspective: 150rem;
   -ms-perspective: 150rem;
   -o-perspective: 150rem;
-  height: 50rem;
+  height: 52rem;
 
   position: relative;
 
   &__side {
-    color: white;
-    font-size: 2rem;
-    height: 50rem;
-
+    height: 52rem;
     transition: all 0.8s ease;
     -webkit-transition: all 0.8s ease;
     -moz-transition: all 0.8s ease;
     -ms-transition: all 0.8s ease;
     -o-transition: all 0.8s ease;
+
     position: absolute;
     top: 0;
     left: 0;
@@ -34,6 +33,9 @@
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
 
+    /* The overflow property is preventing the image from overflowing out of the container.
+        This allows the border radius to be visable. */
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
     &--front {
@@ -73,11 +75,11 @@
   }
 
   &:hover &__side--front {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
   }
 
   &:hover &__side--back {
@@ -86,5 +88,85 @@
     -moz-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     -o-transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+
+    /* The background-blend-mode property allows blending of background layers.
+        Previously, the images would have had to have been exported and Photoshopped to complete the effects. */
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: url(../img/nat-5.jpg);
+    }
+
+    &--3 {
+      background-image: url(../img/nat-5.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+
+    /* The box-decoration-break property allows specification of how parts of whole element are treated.
+        In this case, one line of text (e.g. The Sea Explorer) is broken into two lines.
+        The padding specs are applied to each of the two lines of text. */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.85),
+        rgba($color-secondary-dark, 0.85)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      /* This works for centering when it is a block element inside a block element. */
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
   }
 }
