@@ -530,12 +530,37 @@ body {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   padding: 6rem;
-  font-size: 1.6rem; }
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg);
+  -webkit-transform: skewX(-12deg);
+  -moz-transform: skewX(-12deg);
+  -ms-transform: skewX(-12deg);
+  -o-transform: skewX(-12deg);
+  /* The shape-outside property allows definition of some shape that other inline content will wrap around.
+        This property is effective when using the float property and the dimensions are defined (width & height).
+    The circle defined is specified with 50% radius (50% of height/width) and positioned in the center (50% 50%). */ }
   .story__shape {
     width: 15rem;
     height: 15rem;
-    background-color: orangered;
-    float: left; }
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    -webkit-transform: translateX(-3rem) skewX(12deg);
+    -moz-transform: translateX(-3rem) skewX(12deg);
+    -ms-transform: translateX(-3rem) skewX(12deg);
+    -o-transform: translateX(-3rem) skewX(12deg); }
+  .story__img {
+    height: 100%; }
+  .story__text {
+    transform: skewX(12deg);
+    -webkit-transform: skewX(12deg);
+    -moz-transform: skewX(12deg);
+    -ms-transform: skewX(12deg);
+    -o-transform: skewX(12deg); }
 
 .row {
   max-width: 114rem;
