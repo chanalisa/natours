@@ -39,13 +39,13 @@
 
   &__img {
     height: 100%;
-    // backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transform: translateX(-4rem) scale(1.4);
     -webkit-transform: translateX(-4rem) scale(1.4);
     -moz-transform: translateX(-4rem) scale(1.4);
     -ms-transform: translateX(-4rem) scale(1.4);
     -o-transform: translateX(-4rem) scale(1.4);
-    //-webkit-backface-visibility: hidden;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
