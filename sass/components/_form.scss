@@ -1,0 +1,71 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    width: 90%;
+    display: block;
+    font-size: 1.5rem;
+    color: inherit;
+    font-family: inherit;
+    // Always include more padding on the sides. (It looks less awkward.)
+    padding: 1.5rem 2rem;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+
+    // For accessibility, the outline for focus should not simply be set to none.
+    // Instead, provide an alternative if the outline is being removed.
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+
+      // Use the validation on the browser to customize valid/invalid states.
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    }
+
+    // This sudo-element only works for Chrome and Safari.
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+  }
+
+  // + : adjacent sibling selector (selects the sibling element immediately following)
+  // ~ : general sibling selector (selects a sibling element following - does not have to be immediately after)
+  // When the placeholder is shown, make the label opacity zero and visibility hidden.
+  // Why is visibility hidden needed if we have opacity set to zero?
+  // The element will still be on the page when opacity is zero, but invisible.
+  // Why not just make visibility hidden?
+  // Visibility is not a property that can be animated.
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+    -webkit-transform: translateY(-4rem);
+    -moz-transform: translateY(-4rem);
+    -ms-transform: translateY(-4rem);
+    -o-transform: translateY(-4rem);
+  }
+}
