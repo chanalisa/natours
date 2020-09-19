@@ -8,6 +8,7 @@
     Here, all is specified, so all properties (translations in hover and active) will be animated with transition. */
 
 .btn {
+  &,
   &:link,
   &:visited {
     font-size: $default-font-size;
@@ -26,6 +27,10 @@
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
     position: relative;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   /* To give the effect of pressing a button, adjust box-shadow.
@@ -39,7 +44,9 @@
     -o-transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-    &::after {
+    &::after,
+    &:focus {
+      outline: none;
       opacity: 0;
       transform: scaleX(1.4) scaleY(1.6);
       -webkit-transform: scaleX(1.4) scaleY(1.6);

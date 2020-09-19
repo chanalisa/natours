@@ -164,22 +164,22 @@ body {
     margin-bottom: 3rem; }
 
 .u-center-text {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem !important; }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem !important; }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem !important; }
 
 .u-margin-top-big {
-  margin-top: 8rem; }
+  margin-top: 8rem !important; }
 
 .u-margin-top-huge {
-  margin-top: 10rem; }
+  margin-top: 10rem !important; }
 
 /* link & visited are pseudo-classes (a special state of a selector) */
 /* The inline-block displays an element as inline-level block container.
@@ -202,7 +202,7 @@ body {
   /* animation: [name] [duration] [timing-function] [delay] */
   /* The animation-fill-mode property specifies a style for the element when the animation is not playing.
       Below it is set as backwards, which will use moveInBottom at the 0% keyframe properties during the delay. */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     font-size: 1.6rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -218,7 +218,9 @@ body {
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
-    position: relative; }
+    position: relative;
+    border: none;
+    cursor: pointer; }
   .btn:hover {
     transform: translateY(-3px);
     -webkit-transform: translateY(-3px);
@@ -226,7 +228,8 @@ body {
     -ms-transform: translateY(-3px);
     -o-transform: translateY(-3px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-    .btn:hover::after {
+    .btn:hover::after, .btn:hover:focus {
+      outline: none;
       opacity: 0;
       transform: scaleX(1.4) scaleY(1.6);
       -webkit-transform: scaleX(1.4) scaleY(1.6);
@@ -550,7 +553,12 @@ body {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  -o-border-radius: 2px; }
+  -o-border-radius: 2px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s; }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -580,6 +588,61 @@ body {
   -moz-transform: translateY(-4rem);
   -ms-transform: translateY(-4rem);
   -o-transform: translateY(-4rem); }
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -0.4rem; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
 
 .story {
   width: 75%;
