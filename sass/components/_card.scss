@@ -201,21 +201,10 @@
 
   // BACK SIDE STYLING
   &__cta {
-    position: absolute;
+    @include centerHorizontalVertical;
+
     width: 90%;
     text-align: center;
-
-    /* This moves the element 50% of its parent element's height down and 50% of its parents element's width to the left. */
-    top: 50%;
-    left: 50%;
-
-    /* The transform property pulls the element back to the center by translating it 50% of it's own width to the right
-        and 50% of its own height upward. */
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
   }
 
   &__price-box {
