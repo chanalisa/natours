@@ -17,6 +17,7 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
   }
 
   /* The background starts as a small circle and after it is selcted, it expands to take up the entire screen. */
@@ -42,34 +43,48 @@
       $color-primary-dark
     );
     z-index: 1000;
-    transform: scale(80);
-    -webkit-transform: scale(80);
-    -moz-transform: scale(80);
-    -ms-transform: scale(80);
-    -o-transform: scale(80);
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    -webkit-transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    -moz-transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    -ms-transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    -o-transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
   }
 
-  /* The width does not need to be specified in this case because it is a block level element.
-      It automatically occupieds 100% fo the width. */
+  /* If the width is not specified, it will automatically occupy 100% of the width because it is a block level element.
+      Here, we want to hide the nav until selected, so we specify a width of 0. */
   &__nav {
     height: 100vh;
-    width: 100%;
     position: fixed;
     top: 0;
-    right: 0;
+    //right: 0;
+    left: 0;
     z-index: 1500;
+
+    opacity: 0;
+    width: 0;
+
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -ms-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -o-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   &__list {
     @include centerHorizontalVertical;
     list-style: none;
     text-align: center;
+    width: 100%;
   }
 
   &__item {
     margin: 1rem;
   }
 
+  /* To make the color change effect for the links on hover:
+      the background-color with the sharp linear-gradient was implemented
+      the background-size was increased beyond the area of the link element so only the transparent is seen initially
+      when the link element is hovered, the background position is shifted so only the white is seen */
   &__link {
     &:link,
     &:visited {
@@ -109,5 +124,18 @@
       -ms-transform: translateX(1rem);
       -o-transform: translateX(1rem);
     }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+    -webkit-transform: scale(80);
+    -moz-transform: scale(80);
+    -ms-transform: scale(80);
+    -o-transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
   }
 }
