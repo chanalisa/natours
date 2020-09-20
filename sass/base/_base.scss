@@ -20,7 +20,8 @@ html {
   // This defines what 1rem is.
   font-size: 62.5%;
 
-  /* Always apply larger media queries before the smaller ones because order matters. */
+  /* Desktop-First: Always apply larger media queries before the smaller ones
+      Mobile-First: Apply smaller media queries before the larger ones */
 
   /* This @mixin resolves to:
       @media (max-width: 1200px) {
@@ -51,4 +52,10 @@ html {
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  // remove padding on smaller devices
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }
