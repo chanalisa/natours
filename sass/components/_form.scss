@@ -38,7 +38,7 @@
       }
     }
 
-    // This sudo-element only works for Chrome and Safari.
+    // This pseudo-element only works for Chrome and Safari.
     &::-webkit-input-placeholder {
       color: $color-grey-dark-2;
     }
@@ -105,7 +105,7 @@
     left: 0;
     top: -0.4rem;
 
-    //  Whenever using a sudo-element, always specify the content and display properties.
+    //  Whenever using a pseudo-element, always specify the content and display properties.
     &::after {
       content: "";
       display: block;

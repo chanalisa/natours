@@ -861,10 +861,17 @@ body {
       It is similar in that it also:
         takes the element out of the natural document flow
         allows specification of its position in relation to a positioned element (with the top/bottom/left/right properties) */
-  /* radial-gradient([centercolor],[outercolor]) */
+  /* radial-gradient([centercolor], [outercolor]) */
   /* z-index only works when the position is defined */
   /* If the width is not specified, it will automatically occupy 100% of the width because it is a block level element.
-      Here, we want to hide the nav until selected, so we specify a width of 0. */ }
+      Here, we want to hide the nav until selected, so we specify a width of 0. */
+  /* To make the color change effect for the links on hover:
+      the background-color with the sharp linear-gradient was implemented
+      the background-size was increased beyond the area of the link element so only the transparent is seen initially
+      when the link element is hovered, the background position is shifted so only the white is seen */
+  /* Changing the opacity instead of the background-color does not yield the same result.
+      Updating the opacity impacts the entire element as a whole; including its contents and children.
+      In this case, the whole icon would be updated to the same opacity. */ }
   .navigation__checkbox {
     display: none; }
   .navigation__button {
@@ -880,7 +887,9 @@ body {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     z-index: 2000;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); }
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer; }
   .navigation__background {
     height: 6rem;
     width: 6rem;
@@ -964,6 +973,47 @@ body {
   .navigation__checkbox:checked ~ .navigation__nav {
     opacity: 1;
     width: 100%; }
+  .navigation__icon {
+    position: relative;
+    margin-top: 3.5rem; }
+    .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+      width: 3rem;
+      height: 2px;
+      background-color: #333;
+      display: inline-block; }
+    .navigation__icon::before, .navigation__icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s; }
+    .navigation__icon::before {
+      top: -0.8rem; }
+    .navigation__icon::after {
+      top: 0.8rem; }
+  .navigation__button:hover .navigation__icon::before {
+    top: -1rem; }
+  .navigation__button:hover .navigation__icon::after {
+    top: 1rem; }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent; }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg); }
+  .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg); }
 
 .section-about {
   background-color: #f7f7f7;
