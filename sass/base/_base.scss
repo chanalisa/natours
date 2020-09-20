@@ -19,6 +19,33 @@ Below, we want 10px as the root, so we found the percentage 10 is of 16. */
 html {
   // This defines what 1rem is.
   font-size: 62.5%;
+
+  /* Always apply larger media queries before the smaller ones because order matters. */
+
+  /* This @mixin resolves to:
+      @media (max-width: 1200px) {
+        html {
+          font-size: 56.25%
+        }
+      }
+  */
+
+  @include respond(tab-land) {
+    // 1rem = 9px --> 9px/16px = 56.25%
+    font-size: 56.25%;
+  }
+
+  /* Because we want the same base for phone and tablet portrait, we don't need to define the resolution for phone.
+      The larger resolution includes the smaller one. */
+  @include respond(tab-port) {
+    // 1rem = 8px --> 8px/16px = 50%
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    // 1rem = 12px --> 12px/16px = 75%
+    font-size: 75%;
+  }
 }
 
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */

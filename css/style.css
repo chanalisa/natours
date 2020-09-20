@@ -6,6 +6,25 @@
 /* This mixin is for elements that need to be centered horizontally and vertically.
     It positions the element halfway down the page and halfway from the left of the page.
     It ensures the center of the element aligns with the center of its parent through the transformation. */
+/* 
+0 - 600px: Phone
+600px - 900px: Tablet Portrait
+900px - 1200px: Tablet Landscape
+1200px - 1800px: Desktop <-- where our normal styles apply
+1800+px: Big Desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop (note: this will use min-width)
+*/
+/* @content: a directive that allows @mixin to take blocks of style wherever it is used */
+/* In media queries, em and rem are not affected by a root font-size.
+    This means that 1em or 1rem is always equal to the font size coming from the browser.
+    By default, it's 16px, but if the user changes it to, for example, 20px, then it will be 20px regardless of what is in the base font definition.
+  Best practice is to use em for media queries.
+    Assume that 1em = 16px for media queries. */
 /* Custom animations can be created with @keyframes rule.
     For browser performance, IT'S BEST TO ONLY ANIMATE OPACITY AND TRANSFORM PROPERTIES.
     That's what browsers are optimized for. */
@@ -87,7 +106,25 @@ The default browser font size is 16px.
 Below, we want 10px as the root, so we found the percentage 10 is of 16. */
 /* FYI: rem is  not supported below IE9 */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  /* This @mixin resolves to:
+      @media (max-width: 1200px) {
+        html {
+          font-size: 56.25%
+        }
+      }
+  */
+  /* Because we want the same base for phone and tablet portrait, we don't need to define the resolution for phone.
+      The larger resolution includes the smaller one. */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 /* https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 body {
