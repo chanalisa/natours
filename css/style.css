@@ -660,10 +660,21 @@ body {
   top: 0;
   left: 0;
   z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
   /* Choosing the table display for the popup allows the content within to be formatted like a table.
       This allows for boxes with the same height. */
+  /* We have to repeat part of the centerHorizontalVertical mixin because we need an additional scale transformation. */
   /* The default for column-gap is 1em (em = font-size of current element = 14px). 
-      CSS automatically balances the column heights. */ }
+      CSS automatically balances the column heights. */
+  /* The hyphens property uses the language code specified at the top of the HTML document. */
+  /* This is a pseudo-class.
+      It applies to the element when the URL changes to the target. */ }
   .popup__content {
     position: absolute;
     /* This moves the element 50% of its parent element's height down and 50% of its parents element's width to the left. */
@@ -686,7 +697,18 @@ body {
     -o-border-radius: 3px;
     -webkit-border-radius: 3px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    -webkit-transform: translate(-50%, -50%) scale(0.25);
+    -moz-transform: translate(-50%, -50%) scale(0.25);
+    -ms-transform: translate(-50%, -50%) scale(0.25);
+    -o-transform: translate(-50%, -50%) scale(0.25);
+    transition: all 0.5s 0.2s;
+    -webkit-transition: all 0.5s 0.2s;
+    -moz-transition: all 0.5s 0.2s;
+    -ms-transition: all 0.5s 0.2s;
+    -o-transition: all 0.5s 0.2s; }
   .popup__left {
     width: 33.333333%;
     display: table-cell; }
@@ -709,6 +731,32 @@ body {
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    -moz-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    -o-transform: translate(-50%, -50%) scale(1); }
+  .popup__close:link, .popup__close:visited {
+    color: #777;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    line-height: 1;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s; }
+  .popup__close:hover {
+    color: #55c57a; }
 
 .story {
   width: 75%;
