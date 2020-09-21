@@ -74,11 +74,11 @@
 }
 
 .book {
-  // Multiple background images
-  // In linear-gradient:
-  // degree of gradient
-  // color (with opacity) and position within image
-  // transparent can be used as a color value
+  /* Multiple background images
+      In linear-gradient:
+        degree of gradient
+        color (with opacity) and position within image
+        transparent can be used as a color value */
   background-image: linear-gradient(
       105deg,
       rgba($color-white, 0.9) 0%,
