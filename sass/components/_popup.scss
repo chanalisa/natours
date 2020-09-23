@@ -56,7 +56,7 @@
     @include respond(tab-land) {
       display: block;
       width: 100%;
-      height: 30rem;
+      height: 20vh;
     }
   }
 
@@ -70,6 +70,7 @@
     @include respond(tab-land) {
       display: block;
       width: 100%;
+      padding: 2rem 3rem;
     }
   }
 
@@ -100,6 +101,10 @@
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
+
+    @include respond(tab-land) {
+      margin-bottom: 2rem;
+    }
   }
 
   // OPEN STATES
@@ -139,7 +144,7 @@
 
       @include respond(tab-land) {
         top: 1rem;
-        right: 1rem;
+        right: 1.5rem;
       }
     }
 
